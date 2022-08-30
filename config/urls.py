@@ -31,7 +31,7 @@ schema_view = get_schema_view(
 )
 
 api_urlpatterns = [
-    path("auth/", include("rest_registration.api.urls")),
+    path("", include("users.urls"), name="users"),
 ]
 
 

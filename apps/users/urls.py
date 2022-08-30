@@ -4,7 +4,7 @@ from rest_framework_simplejwt.views import (
     token_refresh,
     token_verify,
 )
-from apps.auth.views import (
+from apps.users.views import (
     LogoutView,
     RegisterView,
     ChangePasswordView,
