@@ -1,25 +1,13 @@
-from rest_framework.exceptions import APIException
+from rest_framework.views import exception_handler
 
 
-class BadRequest(APIException):
-    status_code = 400
-    default_detail = "Server cannot or will not process the request due to something that is perceived to be a client error."
-    default_code = "bad_request"
+def custom_exception_handler(exc, context):
+    # Call REST framework's default exception handler first,
+    # to get the standard error response.
+    response = exception_handler(exc, context)
 
+    # Now add the HTTP status code to the response.
+    if response is not None:
+        response.data["status_code"] = response.default_code
 
-class Unauthorized(APIException):
-    status_code = 401
-    default_detail = "Client provides no credentials or invalid credentials."
-    default_code = "unauthorized"
-
-
-class Forbidden(APIException):
-    status_code = 403
-    default_detail = "status code indicates that the server understood the request but refuses to authorize it."
-    default_code = "forbidden"
-
-
-class NotFound(APIException):
-    status_code = 404
-    default_detail = "Web user that a requested page is not available."
-    default_code = "not_found"
+    return response

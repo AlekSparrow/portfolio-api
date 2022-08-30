@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework import status
-from apps.auth.permissions import IsOwner
+from apps.auth.permissions import IsOwnerOrReadOnly
 from .serializers import (
     RegisterSerializer,
     ChangePasswordSerializer,
@@ -30,7 +30,7 @@ class ChangePasswordView(UpdateAPIView):
 
 class ProfileView(UpdateAPIView):
     queryset = User.objects.all()
-    permission_classes = (IsOwner,)
+    permission_classes = (IsOwnerOrReadOnly,)
     serializer_class = UpdateUserSerializer
 
 

@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_yasg",
     "rest_framework_simplejwt",
-    # "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -150,6 +149,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
     ),
+    "EXCEPTION_HANDLER": "utils.exception_handler",
     "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
 }
 
