@@ -11,6 +11,8 @@ from apps.users.views import (
     ProfileView,
 )
 
+namespace = "users"
+
 urlpatterns = [
     path("login/", token_obtain_pair, name="token_obtain_pair"),
     path("login/refresh/", token_refresh, name="token_refresh"),
