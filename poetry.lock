@@ -471,10 +471,21 @@ brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
 secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "urllib3-secure-extra", "ipaddress"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
+[[package]]
+name = "whitenoise"
+version = "6.2.0"
+description = "Radically simplified static file serving for WSGI applications"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+brotli = ["brotli"]
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "342834778008956664affcb3568764afb0d7717203d4d5484b9d3f3452ade277"
+content-hash = "c0a2926726f0980c67a3a56f85418fc553d17dcafe241163a0da323485ada07d"
 
 [metadata.files]
 asgiref = [
@@ -765,3 +776,7 @@ uritemplate = [
     {file = "uritemplate-4.1.1.tar.gz", hash = "sha256:4346edfc5c3b79f694bccd6d6099a322bbeb628dbf2cd86eea55a456ce5124f0"},
 ]
 urllib3 = []
+whitenoise = [
+    {file = "whitenoise-6.2.0-py3-none-any.whl", hash = "sha256:8e9c600a5c18bd17655ef668ad55b5edf6c24ce9bdca5bf607649ca4b1e8e2c2"},
+    {file = "whitenoise-6.2.0.tar.gz", hash = "sha256:8fa943c6d4cd9e27673b70c21a07b0aa120873901e099cd46cab40f7cc96d567"},
+]

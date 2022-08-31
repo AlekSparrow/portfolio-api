@@ -29,7 +29,7 @@ SECRET_KEY = env.str("SECRET_KEY", "Ensure you set a secret key, this is importa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", False)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", cast=str, default=[])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", cast=str, default=["*"])
 
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", cast=str, default=[])
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     # Custom apps
     "apps.accounts",
@@ -60,6 +61,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
