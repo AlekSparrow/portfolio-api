@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from apps.portfolio.views import PortfolioViewSet, ImageViewSet, CommentView
 
 router = DefaultRouter()
-router.register("images/", ImageViewSet)
+router.register("images", ImageViewSet)
 router.register("", PortfolioViewSet, basename="portfolio")
 
 urlpatterns = [
