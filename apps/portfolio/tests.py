@@ -1,12 +1,8 @@
-import shutil
 import tempfile
-from unittest import mock
 from django.contrib.auth import get_user_model
-from django.test import override_settings, TestCase
-from rest_framework.reverse import reverse, reverse_lazy
-from PIL import Image
+from django.test import TestCase
+from rest_framework.reverse import reverse
 from apps.portfolio.models import Image
-from apps.portfolio.views import ImageViewSet
 
 User = get_user_model()
 
@@ -22,7 +18,7 @@ class UserMixin(object):
             last_name=f"Lname{user_number}",
             email=f"test{user_number}@example.com",
         )
-        user.set_password(f"testPassword")
+        user.set_password("testPassword")
         user.save()
         return user
 

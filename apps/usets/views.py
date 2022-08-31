@@ -6,7 +6,11 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework import status
 from apps.accounts.permissions import IsOwnerOrReadOnly
-
+from apps.accounts.serializers import (
+    RegisterSerializer,
+    ChangePasswordSerializer,
+    UpdateUserSerializer,
+)
 
 User = get_user_model()
 
@@ -40,4 +44,4 @@ class LogoutView(APIView):
 
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
-            return Response(exception=BadRequest)
+            return Response(status=status.HTTP_400_BAD_REQUEST)
