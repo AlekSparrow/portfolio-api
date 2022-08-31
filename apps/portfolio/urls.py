@@ -4,7 +4,7 @@ from apps.portfolio.views import PortfolioViewSet, ImageViewSet, CommentView
 
 router = DefaultRouter()
 router.register(r"images", ImageViewSet)
-router.register(r"portfolios", PortfolioViewSet, basename="portfolio")
+router.register("", PortfolioViewSet, basename="portfolio")
 
 urlpatterns = [
     path("", include(router.urls)),
