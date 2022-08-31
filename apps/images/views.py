@@ -1,6 +1,6 @@
 from rest_framework import viewsets, filters
 from rest_framework.permissions import IsAuthenticated
-from apps.users.permissions import IsOwnerOrReadOnly
+from apps.accounts.permissions import IsOwnerOrReadOnly
 from apps.images.models import Image
 from apps.images.serializers import ImageListSerializer, ImageSerializer
 

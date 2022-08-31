@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Custom apps
-    "apps.users",
+    "apps.accounts",
     # Installed apps
     "rest_framework",
     "drf_yasg",
@@ -148,7 +148,6 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    "EXCEPTION_HANDLER": "utils.exception_handler",
 }
 
 # Swagger settings

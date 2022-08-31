@@ -1,7 +1,7 @@
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from apps.portfolio.models import Portfolio
-from apps.users.permissions import IsOwnerOrReadOnly
+from apps.accounts.permissions import IsOwnerOrReadOnly
 from apps.portfolio.serializers import PortfolioSerializer, PortfolioListSerializer
 
 
