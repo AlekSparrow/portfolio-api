@@ -17,9 +17,7 @@ class PortfolioViewSet(ModelViewSet):
     permission_classes = [IsOwnerOrReadOnly]
 
     def get_queryset(self):
-        return Portfolio.objects.filter(created_by=self.request.user).order_by(
-            "created_at"
-        )
+        return Portfolio.objects.all().order_by("created_at")
 
     def get_serializer_class(self):
         return PortfolioListSerializer if self.action == "list" else PortfolioSerializer
@@ -27,7 +25,9 @@ class PortfolioViewSet(ModelViewSet):
 
 class ImageViewSet(ModelViewSet):
     queryset = Image.objects.all().order_by("created_at")
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    permission_classes = [
+        IsOwnerOrReadOnly,
+    ]
     filter_backends = [SearchFilter]
     search_fields = ["name", "description", "portfolio__name"]
 
