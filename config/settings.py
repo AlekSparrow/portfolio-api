@@ -46,8 +46,6 @@ INSTALLED_APPS = [
     # Custom apps
     "apps.accounts",
     "apps.portfolio",
-    "apps.images",
-    "apps.comments",
     # Installed apps
     "rest_framework",
     "drf_yasg",

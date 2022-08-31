@@ -16,17 +16,17 @@ urlpatterns = [
     path("login/refresh/", token_refresh, name="token_refresh"),
     path("register/", register_view, name="accounts_register"),
     path(
-        "change_password/<int:pk>/",
+        "change_password/",
         change_password,
         name="accounts_change_password",
     ),
     path(
-        "update_profile/<int:pk>/",
+        "update_profile/",
         update_profile,
         name="accounts_update_profile",
     ),
     path(
-        "delete_profile/<int:pk>/",
+        "delete_profile/",
         delete_profile,
         name="accounts_delete_profile",
     ),
