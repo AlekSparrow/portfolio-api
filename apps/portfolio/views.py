@@ -35,7 +35,7 @@ class ImageViewSet(ModelViewSet):
         return ImageListSerializer if self.action == "list" else ImageSerializer
 
 
-class CommentViewSet(CreateAPIView):
+class CommentView(CreateAPIView):
     permission_classes = [
         AllowAny,
     ]
