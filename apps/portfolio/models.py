@@ -1,7 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.contrib.contenttypes.fields import GenericRelation
-from apps.comments.models import Comment
 
 User = get_user_model()
 
@@ -26,7 +24,6 @@ class BaseModel(models.Model):
 class Portfolio(BaseModel):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=1024)
-    images = GenericRelation(Comment)
 
     class Meta:
         ordering = ["created_at"]
