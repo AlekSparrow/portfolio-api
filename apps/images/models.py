@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
-from db.models import TimestampedModelMixin
+from utils.model_mixins import AuthorizedTimestampedModelMixin
 from apps.comments.models import Comment
 
 
@@ -10,7 +10,7 @@ def image_path(instance, filename):
     )
 
 
-class Image(TimestampedModelMixin):
+class Image(AuthorizedTimestampedModelMixin):
     name = models.CharField(max_length=255)
     description = models.TextField(max_length=2048)
     image = models.ImageField(upload_to=image_path)
