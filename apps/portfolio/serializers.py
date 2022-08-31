@@ -26,7 +26,7 @@ class CreateMixin:
 class CommentSerializer(ModelSerializer):
     class Meta:
         model = Comment
-        fields = ["id", "comment", "image"]
+        fields = ["id", "text", "image"]
 
 
 class CommentListSerializer(ModelSerializer):
@@ -34,7 +34,7 @@ class CommentListSerializer(ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ["id", "name", "comment", "image", "created_at", "created_by"]
+        fields = ["id", "name", "text", "image", "created_at", "created_by"]
         read_only_fields = ["created_at", "created_by"]
 
 
@@ -55,11 +55,11 @@ class ImageSerializer(CreateMixin, ModelSerializer):
             "comments",
             "created_by",
             "created_at",
-            "upload",
+            "image",
         ]
         read_only_fields = ["created_by", "created_at"]
 
-    def validate_upload(self, upload_image):
+    def validate_image(self, upload_image):
         if not upload_image.name.lower().endswith((".png", ".jpg", ".jpeg")):
             raise ValidationError("Invalid file type.")
         return upload_image
